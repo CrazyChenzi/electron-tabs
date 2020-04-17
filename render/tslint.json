@@ -1,0 +1,75 @@
+// 部分规则参考：https://hellogithub2014.github.io/2017/10/25/tslint-recommend-rules/
+{
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**"
+    ]
+  },
+  "rules": {
+    "indent": [true, "spaces", 2],
+    "interface-name": false,
+    "no-consecutive-blank-lines": true, // 不允许连续的空行
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "quotemark": [true, "single"],
+    "semicolon": [false, "never"], // 不检查分号
+    "max-line-length": [true, 200], // 单行做多200个
+    "no-console": false,
+    "no-empty": false,   //  block is empty
+    "member-access": true,  // 显示指定类成员中的可访问性
+    "member-ordering": [
+      true,
+      {
+        "order": "statics-first"
+      }
+    ],  // 固定类成员的顺序
+    "no-empty-interface": true, // 禁止使用空接口
+    "no-var-requires": true,
+    "only-arrow-functions": true,
+    "prefer-for-of": true,  // 推荐使用for-of循环而不是标准for循环，if the index is only used to access the array being iterated
+    "curly": true,  // 强制if/for/do/while的代码被花括号包围
+    "forin": true,  // 因为for...in在迭代每个值时，都可能会深入对象的原型链，导致效率低下，考虑在循环内使用hasOwnProperty方法进行过滤
+    "label-position": true,
+    "no-arg": true, // 不允许使用arguments.callee
+    "no-construct": true,
+    "no-duplicate-super": true,
+    "no-invalid-this": false, // 不允许在类外面使用this关键字
+    "no-shadowed-variable": true,
+    "no-var-keyword": true,
+    "radix": true,
+    "triple-equals": true,
+    "use-isnan": true,
+    "eofline": false,  // 强制文件以一个新行结束。
+    "jsdoc-format": true,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "objects": "ignore",
+          "arrays": "ignore",
+          "functions": "never",
+          "typeLiterals": "ignore"
+        },
+        "esSpecCompliant": true
+      }
+    ],
+    "no-async-without-await": true,
+    "no-duplicate-switch-case": true,
+    "import-spacing": true,
+    "no-duplicate-variable": true,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-type-operator"
+    ],
+    "interface-over-type-literal": null
+  }
+}

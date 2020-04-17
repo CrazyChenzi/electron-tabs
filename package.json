@@ -1,0 +1,21 @@
+{
+  "name": "tools-application-container",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "http://gogs.visionacademy.cn/yuanjiachen/tools-application-container.git",
+  "author": "林深处见鹿 <756319278@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "npm run build && electron ./dist/main.js"
+  },
+  "devDependencies": {
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "electron": "^8.2.2"
+  }
+}
