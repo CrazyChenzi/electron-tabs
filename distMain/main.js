@@ -12,7 +12,7 @@ var createWindow = function () {
         height: 800,
         minWidth: 1200,
         minHeight: 800,
-        // frame: false,
+        frame: false,
         webPreferences: {
             nodeIntegration: true
         }
@@ -23,10 +23,15 @@ var createWindow = function () {
         mainWindow = null;
         createNewTabs.destroyAllBrowserView();
     });
+    mainWindow.once('ready-to-show', function () {
+        mainWindow.show();
+    });
 };
 electron_1.app.on('ready', function () {
     createWindow();
     createNewTabs.init();
+    mainWindow.reload();
+    mainWindow.webContents.reload();
 });
 // Quit when all windows are closed.
 electron_1.app.on('window-all-closed', function () {

@@ -7,6 +7,11 @@
           <div v-if="tab.showClose" class="close" @click.stop="closeTab(tab)"></div>
         </li>
       </ul>
+      <div class="btns">
+        <img src="./images/minimize.png" alt="" @click="minimize">
+        <img src="./images/maximize.png" alt="" @click="maximize">
+        <img src="./images/close_tab.png" alt="" @click="close">
+      </div>
     </div>
     <div class="application-container" v-show="activeKey === 'Home'">
       <ul class="application-datas">
@@ -20,7 +25,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { sendChangeBrowserView, getIpcMainMessage } from './ipcRenderer'
+import { sendChangeBrowserView, getIpcMainMessage, minimize, maximize, close } from './ipcRenderer'
 
 export type AppApplicationDatas = {
   applicationKey: string,
@@ -46,7 +51,7 @@ export default class App extends Vue {
     },
     {
       applicationKey: 'Baidu',
-      applicationName: '百度',
+      applicationName: 'Baidu',
       applicationIcon: '',
       applicationUrl: 'https://www.baidu.com',
       isActive: false,
@@ -55,7 +60,7 @@ export default class App extends Vue {
     },
     {
       applicationKey: 'Google',
-      applicationName: '谷歌',
+      applicationName: 'Google',
       applicationIcon: '',
       applicationUrl: 'https://www.google.com',
       isActive: false,
@@ -162,6 +167,15 @@ export default class App extends Vue {
     this.tabDatas = this.applicationDatas.filter((app) => app.isVisable)
   }
 
+  private minimize() {
+    minimize()
+  }
+  private maximize() {
+    maximize()
+  }
+  private close() {
+    close()
+  }
   private callbackMessage(event: any, {message, data}: any) {
     console.log(message, data)
   }
@@ -184,7 +198,13 @@ export default class App extends Vue {
   padding: 0;
   max-height: 35px;
   border-bottom: 1px solid #dcd7d782;
+  display: flex;
+  align-content: center;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
   .tabs {
+    -webkit-app-region: no-drag;
+    flex: 1;
     margin: 0;
     list-style-type: none;
     line-height: 35px;
@@ -255,6 +275,16 @@ export default class App extends Vue {
       &::after {
         border-color: transparent transparent transparent #ffffff;
       }
+    }
+  }
+  .btns {
+    -webkit-app-region: no-drag;
+    line-height: 35px;
+    img {
+      width: 16px;
+      height: 16px;
+      margin-right: 10px;
+      cursor: pointer;
     }
   }
 }

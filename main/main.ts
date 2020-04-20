@@ -12,7 +12,7 @@ const createWindow = () => {
     height: 800,
     minWidth: 1200,
     minHeight: 800,
-    // frame: false,
+    frame: false,
     webPreferences: {
       nodeIntegration: true
     }
@@ -24,11 +24,16 @@ const createWindow = () => {
     mainWindow = null
     createNewTabs.destroyAllBrowserView()
   })
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show()
+  })
 }
 
 app.on('ready', () => {
   createWindow()
   createNewTabs.init()
+  mainWindow.reload()
+  mainWindow.webContents.reload()
 })
 
 // Quit when all windows are closed.

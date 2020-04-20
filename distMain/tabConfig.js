@@ -27,6 +27,7 @@ var CreateNewTabs = /** @class */ (function () {
         this.homeBrowserview.setBounds({ x: 0, y: 0, width: width, height: height });
         this.homeBrowserview.setAutoResize({ width: true, height: true });
         this.homeBrowserview.webContents.loadURL('http://localhost:8888/');
+        this.homeBrowserview.webContents.openDevTools();
         // 监听
         this.onCreateBrowserView();
         this.onChangeTabBrowserView();
