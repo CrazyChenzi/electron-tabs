@@ -1,15 +1,38 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
+    "outDir": "./distMain/",// 打包到的目录
+    "sourceMap": false,// 是否生成sourceMap（用于浏览器调试）
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,// 是否生成声明文件
+    "declarationDir": "./distMain/types/",// 声明文件打包的位置
+    "declarationMap": false,// 是否生成声明文件map文件（便于调试）
+    "moduleResolution": "node",
     "module": "commonjs",
-    "noImplicitAny": true,
-    "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*"]
-    }
+    "target": "es5",// 转化成的目标语言
+    "baseUrl": "./",
+    "types": [
+      "node",
+      "jest"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "jsx": "react",
+    "allowJs": false
   },
   "include": [
-    "main/**/*"
+    "main/**/*.ts"
+  ],// 要打包的文件
+  "exclude": [
+    "node_modules",
+    "*.test.ts"
   ]
 }

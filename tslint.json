@@ -27,8 +27,8 @@
         "order": "statics-first"
       }
     ],  // 固定类成员的顺序
+    "no-var-requires": false,
     "no-empty-interface": true, // 禁止使用空接口
-    "no-var-requires": true,
     "only-arrow-functions": true,
     "prefer-for-of": true,  // 推荐使用for-of循环而不是标准for循环，if the index is only used to access the array being iterated
     "curly": true,  // 强制if/for/do/while的代码被花括号包围

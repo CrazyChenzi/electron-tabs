@@ -1,21 +1,42 @@
 {
   "name": "tools-application-container",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./distMain/main.js",
   "repository": "http://gogs.visionacademy.cn/yuanjiachen/tools-application-container.git",
   "author": "林深处见鹿 <756319278@qq.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && electron-builder --config.productName='application' --config.directories.output=./distApp",
     "watch": "tsc -w",
     "lint": "tslint -c tslint.json -p tsconfig.json",
-    "start": "npm run build && electron ./dist/main.js"
+    "start": "tsc && electron ./distMain/main.js"
   },
   "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "electron": "^8.2.2",
+    "electron-builder": "^22.5.1",
+    "jest": "^25.4.0",
     "tslint": "^6.1.1",
     "typescript": "^3.8.3"
   },
-  "dependencies": {
-    "electron": "^8.2.2"
+  "dependencies": {},
+  "build": {
+    "appId": "application",
+    "files": [
+      "distMain/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": true
+    }
   }
 }

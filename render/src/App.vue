@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { sendChangeBrowerView, getIpcMainMessage } from './ipcRenderer'
+import { sendChangeBrowserView, getIpcMainMessage } from './ipcRenderer'
 
 export type AppApplicationDatas = {
   applicationKey: string,
@@ -77,12 +77,12 @@ export default class App extends Vue {
   private openApplication(application: AppApplicationDatas) {
     this.changeActive(application)
     if (application.applicationKey === 'Home') {
-      this.$electron.sendChangeBrowerView('home-brower-view', {
+      this.$electron.sendChangeBrowserView('home-browser-view', {
         applicationKey: application.applicationKey,
         applicationUrl: application.applicationUrl
       })
     } else {
-      this.$electron.sendChangeBrowerView('create-brower-view', {
+      this.$electron.sendChangeBrowserView('create-browser-view', {
         applicationKey: application.applicationKey,
         applicationUrl: application.applicationUrl
       })
@@ -98,12 +98,12 @@ export default class App extends Vue {
   private changeTab(application: AppApplicationDatas): void {
     this.changeActive(application)
     if (application.applicationKey === 'Home') {
-      this.$electron.sendChangeBrowerView('home-brower-view', {
+      this.$electron.sendChangeBrowserView('home-browser-view', {
         applicationKey: application.applicationKey,
         applicationUrl: application.applicationUrl
       })
     } else {
-      this.$electron.sendChangeBrowerView('changetab-brower-view', {
+      this.$electron.sendChangeBrowserView('changetab-browser-view', {
         applicationKey: application.applicationKey,
         applicationUrl: application.applicationUrl
       })
@@ -131,7 +131,7 @@ export default class App extends Vue {
       }
     })
     this.tabDatas = this.applicationDatas.filter((app) => app.isVisable)
-    this.$electron.sendChangeBrowerView('close-brower-view', {
+    this.$electron.sendChangeBrowserView('close-browser-view', {
       applicationKey: application.applicationKey,
       applicationUrl: application.applicationUrl
     })

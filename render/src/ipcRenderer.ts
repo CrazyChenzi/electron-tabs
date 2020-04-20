@@ -1,6 +1,6 @@
 const { remote, ipcRenderer, webFrame } = (window as any).require('electron')
 
-export const sendChangeBrowerView = (msg = 'create-brower-view', options: {applicationKey: string, applicationUrl: string}): void => {
+export const sendChangeBrowserView = (msg = 'create-browser-view', options: {applicationKey: string, applicationUrl: string}): void => {
   ipcRenderer.send(msg, options)
 }
 
