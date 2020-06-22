@@ -2,6 +2,8 @@
 
 Use BrowserView to make a switchable tab
 
+![illustrate](https://raw.githubusercontent.com/blacklisten/electron-tabs/master/illustrate.gif)
+
 # Development
 
 ```shell
