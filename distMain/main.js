@@ -17,6 +17,8 @@ var createWindow = function () {
             nodeIntegration: true
         }
     });
+    mainWindow.webContents.loadURL('http://localhost:8888/');
+    mainWindow.webContents.openDevTools();
     createNewTabs = new tabConfig_1.CreateNewTabs(mainWindow, HOMEMAXHEIGHT);
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
@@ -30,8 +32,8 @@ var createWindow = function () {
 electron_1.app.on('ready', function () {
     createWindow();
     createNewTabs.init();
-    mainWindow.reload();
-    mainWindow.webContents.reload();
+    // mainWindow.reload()
+    // mainWindow.webContents.reload()
 });
 // Quit when all windows are closed.
 electron_1.app.on('window-all-closed', function () {

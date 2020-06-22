@@ -203,7 +203,6 @@ export default class App extends Vue {
   -webkit-user-select: none;
   -webkit-app-region: drag;
   .tabs {
-    -webkit-app-region: no-drag;
     flex: 1;
     margin: 0;
     list-style-type: none;
@@ -213,6 +212,7 @@ export default class App extends Vue {
     display: flex;
     padding-right: 20px;
     .tab {
+      -webkit-app-region: no-drag;
       margin: 5px -10px 0;
       border-top-right-radius: 25px 170px;
       border-top-left-radius: 20px 90px;

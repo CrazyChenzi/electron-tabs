@@ -17,8 +17,10 @@ const createWindow = () => {
       nodeIntegration: true
     }
   })
-  createNewTabs = new CreateNewTabs(mainWindow, HOMEMAXHEIGHT)
+  mainWindow.webContents.loadURL('http://localhost:8888/')
+  mainWindow.webContents.openDevTools()
 
+  createNewTabs = new CreateNewTabs(mainWindow, HOMEMAXHEIGHT)
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
     mainWindow = null
@@ -32,8 +34,8 @@ const createWindow = () => {
 app.on('ready', () => {
   createWindow()
   createNewTabs.init()
-  mainWindow.reload()
-  mainWindow.webContents.reload()
+  // mainWindow.reload()
+  // mainWindow.webContents.reload()
 })
 
 // Quit when all windows are closed.

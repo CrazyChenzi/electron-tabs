@@ -25,13 +25,13 @@ export class CreateNewTabs {
    * @returns void
    */
   public init(): void {
-    const [width, height] = this.getSize()
-    this.homeBrowserview = new BrowserView({ webPreferences: {nodeIntegration: true} })
-    this.addBrowserView(this.homeBrowserview)
-    this.homeBrowserview.setBounds({ x: 0, y: 0, width, height })
-    this.homeBrowserview.setAutoResize({ width: true, height: true })
-    this.homeBrowserview.webContents.loadURL('http://localhost:8888/')
-    this.homeBrowserview.webContents.openDevTools()
+    // const [width, height] = this.getSize()
+    // this.homeBrowserview = new BrowserView({ webPreferences: {nodeIntegration: true} })
+    // this.addBrowserView(this.homeBrowserview)
+    // this.homeBrowserview.setBounds({ x: 0, y: 0, width, height })
+    // this.homeBrowserview.setAutoResize({ width: true, height: true })
+    // this.homeBrowserview.webContents.loadURL('http://localhost:8888/')
+    // this.homeBrowserview.webContents.openDevTools()
 
     // 监听
     this.onCreateBrowserView()
