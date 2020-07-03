@@ -1,5 +1,6 @@
 
-import { BrowserView, ipcMain } from 'electron'
+import { BrowserView, ipcMain, globalShortcut } from 'electron'
+import { DEVTOOLS } from '../utils/utils'
 
 /**
  * 创建一个新的tab
@@ -160,5 +161,8 @@ export class CreateNewTabs {
       this.nextRemoveBrowserView = this.browserViewList[`${arg.applicationKey}`]
     }
     this.lastBrowserView = this.browserViewList[`${arg.applicationKey}`]
+    globalShortcut.register('Shift+V', () => {
+      DEVTOOLS(this.lastBrowserView)
+    })
   }
 }

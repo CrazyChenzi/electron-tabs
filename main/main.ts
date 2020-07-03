@@ -1,5 +1,6 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, globalShortcut } from 'electron'
 import { CreateNewTabs } from './tabConfig'
+import { DEVTOOLS } from '../utils/utils'
 
 let mainWindow: Electron.BrowserWindow
 const HOMEMAXHEIGHT = 36
@@ -18,7 +19,6 @@ const createWindow = () => {
     }
   })
   mainWindow.webContents.loadURL('http://localhost:8888/')
-  mainWindow.webContents.openDevTools()
 
   createNewTabs = new CreateNewTabs(mainWindow, HOMEMAXHEIGHT)
   // Emitted when the window is closed.
@@ -34,6 +34,9 @@ const createWindow = () => {
 app.on('ready', () => {
   createWindow()
   createNewTabs.init()
+  globalShortcut.register('Shift+C', () => {
+    DEVTOOLS(mainWindow)
+  })
   // mainWindow.reload()
   // mainWindow.webContents.reload()
 })

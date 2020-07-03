@@ -1,0 +1,31 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "start",
+			"problemMatcher": [],
+			"label": "npm: start",
+			"detail": "tsc && electron ./distMain/main/main.js"
+		},
+		{
+			"label": "compile",
+			"type": "npm",
+			"script": "watch",
+			"problemMatcher": [],
+			"dependsOn": [
+				"lint"
+			]
+		},
+		{
+			"type": "typescript",
+			"tsconfig": "render/tsconfig.json",
+			"option": "watch",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": "build",
+			"label": "tsc: watch - render/tsconfig.json"
+		}
+	]
+}

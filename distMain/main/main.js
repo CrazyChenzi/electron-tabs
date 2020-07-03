@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var electron_1 = require("electron");
 var tabConfig_1 = require("./tabConfig");
+var utils_1 = require("../utils/utils");
 var mainWindow;
 var HOMEMAXHEIGHT = 36;
 var createNewTabs;
@@ -18,7 +19,6 @@ var createWindow = function () {
         }
     });
     mainWindow.webContents.loadURL('http://localhost:8888/');
-    mainWindow.webContents.openDevTools();
     createNewTabs = new tabConfig_1.CreateNewTabs(mainWindow, HOMEMAXHEIGHT);
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
@@ -32,6 +32,9 @@ var createWindow = function () {
 electron_1.app.on('ready', function () {
     createWindow();
     createNewTabs.init();
+    electron_1.globalShortcut.register('Shift+C', function () {
+        utils_1.DEVTOOLS(mainWindow);
+    });
     // mainWindow.reload()
     // mainWindow.webContents.reload()
 });
@@ -49,3 +52,4 @@ electron_1.app.on('activate', function () {
         createNewTabs.init();
     }
 });
+//# sourceMappingURL=main.js.map

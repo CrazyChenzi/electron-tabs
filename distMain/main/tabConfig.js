@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var electron_1 = require("electron");
+var utils_1 = require("../utils/utils");
 /**
  * 创建一个新的tab
  * @author blacklisten
@@ -140,6 +141,7 @@ var CreateNewTabs = /** @class */ (function () {
      * @returns void
      */
     CreateNewTabs.prototype.createBrowserView = function (arg) {
+        var _this = this;
         var _a = this.getSize(), width = _a[0], height = _a[1];
         if (!this.browserViewList["" + arg.applicationKey]) {
             this.browserViewList["" + arg.applicationKey] = new electron_1.BrowserView({ webPreferences: { nodeIntegration: true } });
@@ -157,7 +159,11 @@ var CreateNewTabs = /** @class */ (function () {
             this.nextRemoveBrowserView = this.browserViewList["" + arg.applicationKey];
         }
         this.lastBrowserView = this.browserViewList["" + arg.applicationKey];
+        electron_1.globalShortcut.register('Shift+V', function () {
+            utils_1.DEVTOOLS(_this.lastBrowserView);
+        });
     };
     return CreateNewTabs;
 }());
 exports.CreateNewTabs = CreateNewTabs;
+//# sourceMappingURL=tabConfig.js.map
