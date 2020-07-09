@@ -59,7 +59,7 @@ app.on('activate', () => {
 
 ipcMain.on('open-notice', () => {
   const child = new BrowserWindow({ parent: mainWindow, modal: true, show: true })
-  child.loadURL('https://www.google.com')
+  child.loadURL('http://localhost:3000/')
 })
 
 ipcMain.on('open-notice-dialog', () => {

@@ -32,7 +32,7 @@ var createWindow = function () {
 electron_1.app.on('ready', function () {
     createWindow();
     createNewTabs.init();
-    electron_1.globalShortcut.register('Ctrl+Alt+C', function () {
+    electron_1.globalShortcut.register('CmdOrCtrl+Alt+C', function () {
         utils_1.DEVTOOLS(mainWindow);
     });
     // mainWindow.reload()
@@ -54,7 +54,7 @@ electron_1.app.on('activate', function () {
 });
 electron_1.ipcMain.on('open-notice', function () {
     var child = new electron_1.BrowserWindow({ parent: mainWindow, modal: true, show: true });
-    child.loadURL('https://www.google.com');
+    child.loadURL('http://localhost:3000/');
 });
 electron_1.ipcMain.on('open-notice-dialog', function () {
     var child = new electron_1.BrowserWindow({ parent: mainWindow, modal: true });

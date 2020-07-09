@@ -160,7 +160,7 @@ var CreateNewTabs = /** @class */ (function () {
             this.nextRemoveBrowserView = this.browserViewList["" + arg.applicationKey];
         }
         this.lastBrowserView = this.browserViewList["" + arg.applicationKey];
-        electron_1.globalShortcut.register('Shift+V', function () {
+        electron_1.globalShortcut.register('CmdOrCtrl+Alt+V', function () {
             utils_1.DEVTOOLS(_this.lastBrowserView);
         });
     };
