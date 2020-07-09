@@ -8,6 +8,7 @@
         </li>
       </ul>
       <div class="btns">
+        <img src="./images/notice.png" alt="" @click="openNotice">
         <img src="./images/minimize.png" alt="" @click="minimize">
         <img src="./images/maximize.png" alt="" @click="maximize">
         <img src="./images/close_tab.png" alt="" @click="close">
@@ -25,7 +26,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { sendChangeBrowserView, getIpcMainMessage, minimize, maximize, close } from './ipcRenderer'
+import { sendChangeBrowserView, sendBrowserWindowHeader, getIpcMainMessage, minimize, maximize, close } from './ipcRenderer'
 
 export type AppApplicationDatas = {
   applicationKey: string,
@@ -167,6 +168,14 @@ export default class App extends Vue {
     this.tabDatas = this.applicationDatas.filter((app) => app.isVisable)
   }
 
+  private openNotice() {
+    sendBrowserWindowHeader('open-notice', {
+      title: '这是测试'
+    })
+    sendBrowserWindowHeader('open-notice-dialog', {
+      title: '这是测试'
+    })
+  }
   private minimize() {
     minimize()
   }

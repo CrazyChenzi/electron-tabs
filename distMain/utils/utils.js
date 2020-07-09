@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DEVTOOLS = void 0;
 exports.DEVTOOLS = function (win) {
     var isOpen = win.webContents.isDevToolsOpened();
     if (isOpen) {

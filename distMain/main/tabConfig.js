@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateNewTabs = void 0;
 var electron_1 = require("electron");
 var utils_1 = require("../utils/utils");
 /**

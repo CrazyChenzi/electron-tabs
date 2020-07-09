@@ -20,7 +20,7 @@
       "name": "Launch and Debug",
       "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron-webpack",
       "runtimeArgs": [
-          "dev"
+        "dev"
       ],
       "autoAttachChildProcesses": true,
       "internalConsoleOptions": "openOnFirstSessionStart",

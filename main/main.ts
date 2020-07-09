@@ -1,4 +1,4 @@
-import { app, BrowserWindow, globalShortcut } from 'electron'
+import { app, BrowserWindow, globalShortcut, ipcMain, dialog } from 'electron'
 import { CreateNewTabs } from './tabConfig'
 import { DEVTOOLS } from '../utils/utils'
 
@@ -34,7 +34,7 @@ const createWindow = () => {
 app.on('ready', () => {
   createWindow()
   createNewTabs.init()
-  globalShortcut.register('Shift+C', () => {
+  globalShortcut.register('CmdOrCtrl+Alt+C', () => {
     DEVTOOLS(mainWindow)
   })
   // mainWindow.reload()
@@ -55,4 +55,15 @@ app.on('activate', () => {
     createWindow()
     createNewTabs.init()
   }
+})
+
+ipcMain.on('open-notice', () => {
+  const child = new BrowserWindow({ parent: mainWindow, modal: true, show: true })
+  child.loadURL('https://www.google.com')
+})
+
+ipcMain.on('open-notice-dialog', () => {
+  const child = new BrowserWindow({ parent: mainWindow, modal: true })
+  child.loadURL('https://www.google.com')
+  dialog.showOpenDialog(child)
 })

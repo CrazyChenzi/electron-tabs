@@ -161,7 +161,7 @@ export class CreateNewTabs {
       this.nextRemoveBrowserView = this.browserViewList[`${arg.applicationKey}`]
     }
     this.lastBrowserView = this.browserViewList[`${arg.applicationKey}`]
-    globalShortcut.register('Shift+V', () => {
+    globalShortcut.register('CmdOrCtrl+Alt+V', () => {
       DEVTOOLS(this.lastBrowserView)
     })
   }
